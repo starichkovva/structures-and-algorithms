@@ -1,26 +1,17 @@
 package org.starichkov.java.algorithms.sorting;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.Collectors;
-
 /**
  * @author Vadim Starichkov
  * @since 13.10.2016 14:38
  */
-public class BubbleSort {
+public class BubbleSort extends AbstractSort {
     public static void main(String[] args) {
         new BubbleSort().sort();
     }
 
     private void sort() {
         int size = 10;
-
-        Random random = new Random();
-        int[] array = new int[size];
-        for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(100);
-        }
+        int[] array = getRandomIntArray(size, 100);
 
         System.out.println("Initial array:");
         System.out.println(arrayToString(array));
@@ -38,9 +29,5 @@ public class BubbleSort {
             System.out.println(arrayToString(array));
             iteration++;
         }
-    }
-
-    private String arrayToString(int[] array) {
-        return Arrays.stream(array).mapToObj(String::valueOf).collect(Collectors.joining(" ")) + System.lineSeparator();
     }
 }
