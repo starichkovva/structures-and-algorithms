@@ -5,13 +5,10 @@ package org.starichkov.java.algorithms.sorting;
  * @since 20.10.2016 21:40
  */
 public class SelectSort extends AbstractSort {
-    public static void main(String[] args) {
-        new SelectSort().sort();
-    }
 
-    private void sort() {
-        int size = 10;
-        int[] array = getRandomIntArray(size, 100);
+    @Override
+    protected void doSort(int[] array) {
+        int size = array.length;
 
         System.out.println("Initial array:");
         System.out.println(arrayToString(array));
