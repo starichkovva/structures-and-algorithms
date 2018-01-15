@@ -15,6 +15,12 @@ For "Bubble" sort:
 java -jar structures-and-algorithms-0.0.1-SNAPSHOT.jar org.starichkov.java.algorithms.sorting.BubbleSort
 ```
 
+For "Insert" sort:
+
+```
+java -jar structures-and-algorithms-0.0.1-SNAPSHOT.jar org.starichkov.java.algorithms.sorting.InsertSort
+```
+
 For "Select" sort:
 
 ```
