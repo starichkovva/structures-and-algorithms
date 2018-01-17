@@ -46,15 +46,6 @@ public final class BilateralLinkedList<T> {
         return firstValue;
     }
 
-    public T deleteLast() throws IllegalStateException {
-        if (last == null) {
-            throw new IllegalStateException();
-        }
-        T lastValue = last.getValue();
-        last = last.getNext();
-        return lastValue;
-    }
-
     public List<T> getItems() {
         List<T> items = new ArrayList<>();
         Link<T> next = first;
