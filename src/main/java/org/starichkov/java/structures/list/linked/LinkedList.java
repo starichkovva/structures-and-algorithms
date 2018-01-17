@@ -21,6 +21,13 @@ public final class LinkedList<T> {
         }
     }
 
+    public T getFirst() throws IllegalStateException {
+        if (first == null) {
+            throw new IllegalStateException();
+        }
+        return first.getValue();
+    }
+
     public T deleteFirst() throws IllegalStateException {
         if (first == null) {
             throw new IllegalStateException();
