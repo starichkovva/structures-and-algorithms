@@ -6,18 +6,31 @@ import java.util.List;
 
 /**
  * @author Vadim Starichkov
- * @since 17.01.2018 10:23
+ * @since 17.01.2018 11:41
  */
-public final class LinkedList<T> {
+public final class BilateralLinkedList<T> {
     private Link<T> first = null;
+    private Link<T> last = null;
 
     public void insertFirst(T item) {
-        if (first == null) {
+        if (isEmpty()) {
             first = new Link<>(item);
+            last = first;
         } else {
             Link<T> newFirst = new Link<>(item);
             newFirst.setNext(first);
             first = newFirst;
+        }
+    }
+
+    public void insertLast(T item) {
+        if (isEmpty()) {
+            last = new Link<>(item);
+            first = last;
+        } else {
+            Link<T> newLast = new Link<>(item);
+            last.setNext(newLast);
+            last = newLast;
         }
     }
 
@@ -27,7 +40,19 @@ public final class LinkedList<T> {
         }
         T firstValue = first.getValue();
         first = first.getNext();
+        if (first == null) {
+            last = null;
+        }
         return firstValue;
+    }
+
+    public T deleteLast() throws IllegalStateException {
+        if (last == null) {
+            throw new IllegalStateException();
+        }
+        T lastValue = last.getValue();
+        last = last.getNext();
+        return lastValue;
     }
 
     public List<T> getItems() {
@@ -38,5 +63,9 @@ public final class LinkedList<T> {
             next = next.getNext();
         }
         return Collections.unmodifiableList(items);
+    }
+
+    public boolean isEmpty() {
+        return first == null && last == null;
     }
 }
